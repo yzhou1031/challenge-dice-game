@@ -7,14 +7,14 @@ import "./DeployHelpers.s.sol";
 
 contract DeployDiceGame is ScaffoldETHDeploy {
     function run() external ScaffoldEthDeployerRunner {
-        DiceGame diceGame = new DiceGame{ value: 0.05 ether }();
+        DiceGame diceGame = new DiceGame{ value: 0.01 ether }();
         console.logString(string.concat("DiceGame deployed at: ", vm.toString(address(diceGame))));
 
         // Uncomment to deploy RiggedRoll contract
-        // RiggedRoll riggedRoll = new RiggedRoll(payable(address(diceGame)));
-        // console.logString(string.concat("RiggedRoll deployed at: ", vm.toString(address(riggedRoll))));
+        RiggedRoll riggedRoll = new RiggedRoll(payable(address(diceGame)));
+        console.logString(string.concat("RiggedRoll deployed at: ", vm.toString(address(riggedRoll))));
 
         // Please replace the text "Your Address" with your own address.
-        // riggedRoll.transferOwnership(Your Address);
+        riggedRoll.transferOwnership(0xB17266085d2a199C3A287Cf0F4a45e436e52605A);
     }
 }

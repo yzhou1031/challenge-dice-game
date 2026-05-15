@@ -1,0 +1,9 @@
+{
+  "challenge": "dice-game",
+  "started_at": "2026-04-25T00:00:00.000Z",
+  "checkpoints": {
+    "receive-eth": { "status": "completed", "completed_at": "2026-04-25T00:00:00.000Z", "method": "coded" },
+    "rigged-roll": { "status": "completed", "completed_at": "2026-04-25T00:00:00.000Z", "method": "coded" },
+    "withdraw": { "status": "completed", "completed_at": "2026-04-25T00:00:00.000Z", "method": "coded" }
+  }
+}
