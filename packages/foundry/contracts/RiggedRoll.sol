@@ -31,7 +31,7 @@ contract RiggedRoll is Ownable {
     /// Functions /////
     ///////////////////
 
-    receive() external payable {}
+    receive() external payable { }
 
     function riggedRoll() external {
         uint256 required = 0.002 ether;
@@ -41,13 +41,13 @@ contract RiggedRoll is Ownable {
         bytes32 hash = keccak256(abi.encodePacked(prevHash, address(diceGame), diceGame.nonce()));
         uint256 roll = uint256(hash) % 16;
         if (roll > 5) revert NotWinningRoll(roll);
-        diceGame.rollTheDice{value: 0.002 ether}();
+        diceGame.rollTheDice{ value: 0.002 ether }();
     }
 
     function withdraw(address _addr, uint256 _amount) external onlyOwner {
         uint256 available = address(this).balance;
         if (_amount > available) revert InsufficientBalance(_amount, available);
-        (bool success, ) = payable(_addr).call{value: _amount}("");
+        (bool success,) = payable(_addr).call{ value: _amount }("");
         require(success, "Withdraw failed");
     }
 }
